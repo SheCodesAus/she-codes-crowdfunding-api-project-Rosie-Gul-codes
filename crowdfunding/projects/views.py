@@ -72,6 +72,12 @@ class PledgeDetail(APIView):
             status=status.HTTP_400_BAD_REQUEST
         )
 
+#DELETE pledge
+    def delete(self, request, pk, format=None):
+        event = self.get_object(pk)
+        event.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 # /projects        
 class ProjectList(APIView):
 
@@ -123,5 +129,9 @@ class ProjectDetail(APIView):
             status=status.HTTP_400_BAD_REQUEST
         )
 
+    def delete(self, request, pk, format=None):
+        event = self.get_object(pk)
+        event.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
-        # ADD DELETE AND EDIT WITH CAMILLA
+        # ADD DELETE

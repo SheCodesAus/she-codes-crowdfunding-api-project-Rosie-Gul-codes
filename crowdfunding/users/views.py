@@ -6,6 +6,7 @@ from rest_framework import status
 from .models import CustomUser
 from .serializers import CustomUserSerializer
 
+# THIS IS /USERS/
 class CustomUserList(APIView):
 
     def get(self, request):
@@ -20,6 +21,7 @@ class CustomUserList(APIView):
             return Response(serializer.data)
         return Response(serializer.errors)
 
+# THIS IS USERS/ID/
 class CustomUserDetail(APIView):
     def get_object(self, pk):
         try:
@@ -31,4 +33,10 @@ class CustomUserDetail(APIView):
         user = self.get_object(pk)
         serializer = CustomUserSerializer(user)
         return Response(serializer.data)
+
+
+    def delete(self, request, pk, format=None):
+        event = self.get_object(pk)
+        event.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 # Create your views here.

@@ -6,6 +6,37 @@ Rosie's Crowdfunding project:
     b.	Logged out
     c.	Administrative status = Admin is the user.
 
+API specification:
+HTTP METHOD	URL	Purpose	Request Body	Successful Response Code	Authentication/Authorisation
+
+PROJECTS					
+GET	/projects/	Returns all projects	N/A	200	N/A
+POST	/projects/	Create a new project	Project object	201	Must be logged in.
+GET	/projects/1/	Returns the project with ID of “1”	N/A	200	N/A
+PUT (edit/update)	/projects/1/	Updates the project with ID of “1”	Project object	201	Must be logged in.
+Must be the project owner.
+DELETE (by admin or owner only)	/projects/1	Deletes the project with ID of “1”	Project object OR N/A	200	Must be logged in.
+Must be the project owner.
+
+PLEDGES					
+GET	/pledges/	Returns all pledges	N/A	200	N/A
+POST 	/pledges/	Create a new pledge	Pledge object	201	Must be logged in.
+Must not be the owner of the project.
+GET	/pledges/1/	Get the pledge with ID of “1”	N/A	200	N/A
+PUT	/pledges/1/	Updates the pledge with ID of “1”	Pledge object	201	Must be logged in.
+Must be the pledge owner.
+DELETE (by admin or owner only)	/pledges/1/	Deletes the pledge with ID of “1”	N/A	200	Must be logged in.
+Must be the pledge owner.
+
+USERS					
+GET	/users/	Returns all users	N/A	200	
+POST 	/users/	Creates a new user	User object	201	Must have unique username and a password to create an account
+GET	/users/1/	Returns user profile with ID of “1”	N/A	200	N/A
+DELETE (by admin(user) or owner only)	/pledges/1/	Deletes the user profile with ID of “1”	N/A	200	Must be logged in.
+Must be the user.
+
+
+
 GitHub Link:
 https://github.com/SheCodesAus/she-codes-crowdfunding-api-project-Rosie-Gul-codes
 

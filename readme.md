@@ -36,7 +36,6 @@ DELETE (by admin(user) or owner only)	/pledges/1/	Deletes the user profile with 
 Must be the user.
 
 
-
 GitHub Link:
 https://github.com/SheCodesAus/she-codes-crowdfunding-api-project-Rosie-Gul-codes
 
@@ -45,7 +44,7 @@ https://rosie-g-crowdfunding.herokuapp.com/projects/
 https://rosie-g-crowdfunding.herokuapp.com/pledges/
 https://rosie-g-crowdfunding.herokuapp.com/users/
 
-
+NOTES:
 1. projects/urls.py provides the pathways, 
 urlpatterns = [
     path('projects/', views.ProjectList.as_view()),
